@@ -16,7 +16,7 @@ done
 for split in train dev test; do
     for lang in ja en; do
         python $REPO/scripts/spm_encode.py \
-            --model ${data_dir}/prep/spm.$lang.model \
+            --model ${data_dir}/prep/spm.$lang.nopretok.model \
                 < ${data_dir}/${split}.${lang} \
                 > ${data_dir}/prep/${split}.sp.${lang}
     done
