@@ -1,16 +1,17 @@
 VOCAB_SIZE=32000
 
 REPO = C:/Users/hsmr0/IM/main/contextual-mt
-data_dir = C:/Users/hsmr0/IM/main/contextual-mt/data
+data_dir = C:/Users/hsmr0/IM/main/contextual-mt/data/BSD-master/for_preprocess
+
 
 for lang in ja en; do
     python $REPO/scripts/spm_train.py \
         ${data_dir}/train.${lang} \
-        --model-prefix ${data_dir}/prep/spm.${lang} \
+        --model-prefix ${data_dir}/prep/spm.${lang}.nopretok \ 
         --vocab-file ${data_dir}/prep/dict.${lang}.txt \
         --vocab-size $VOCAB_SIZE
 done
-for split in train valid test; do
+for split in train dev test; do
     for lang in ja en; do
         python $REPO/scripts/spm_encode.py \
             --model ${data_dir}/prep/spm.$lang.model \
