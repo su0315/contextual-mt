@@ -1,7 +1,7 @@
 VOCAB_SIZE=32000
 
 REPO = C:/Users/hsmr0/IM/main/contextual-mt
-data_dir = C:/Users/hsmr0/IM/main/contextual-mt/scripts/data
+data_dir = C:/Users/hsmr0/IM/main/contextual-mt/data
 
 for lang in ja en; do
     python $REPO/scripts/spm_train.py \
