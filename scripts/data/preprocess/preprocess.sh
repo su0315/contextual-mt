@@ -1,7 +1,9 @@
 VOCAB_SIZE=32000
 
-REPO = C:/Users/hsmr0/IM/main/contextual-mt
-data_dir = C:/Users/hsmr0/IM/main/contextual-mt/data/BSD-master/for_preprocess
+REPO=C:/Users/hsmr0/IM/main/contextual-mt
+data_dir=C:/Users/hsmr0/IM/main/contextual-mt/data/BSD-master/for_preprocess
+
+echo $REPO
 
 
 for lang in ja en; do
@@ -28,3 +30,4 @@ fairseq-preprocess \
     --srcdict ${data_dir}/prep/dict.src.txt \
     --tgtdict ${data_dir}/prep/dict.tgt.txt \
     --destdir ${data_dir}/bin
+
