@@ -9,7 +9,6 @@ for lang in $src_lang $tgt_lang; do
         ${data_dir}/train.${lang} \
         --model-prefix ${data_dir}/prep/spm.${lang}.nopretok.model \ 
         --vocab-file ${nmt_models_dir}/jparacrawl/${src_lang}-${tgt_lang}/small_${src_lang}-${tgt_lang}/dict.${lang}.txt \
-        #--vocab-file ${data_dir}/prep/spm.${lang}.nopretok.vocab \
         --vocab-size $VOCAB_SIZE
 done
 for split in train dev test; do
@@ -29,9 +28,7 @@ fairseq-preprocess \
     --trainpref ${data_dir}/prep/train.sp \
     --validpref ${data_dir}/pep/valid.sp \
     --testpref ${data_dir}/prep/test.sp \
-    --srcdict ${nmt_models_dir}/jparacrawl/${src_lang}-${tgt_lang}/small_${src_lang}-${tgt_lang}/dict.${src_lang}.txt 
-    --tgtdict ${nmt_models_dir}/jparacrawl/${src_lang}-${tgt_lang}/small_${src_lang}-${tgt_lang}/dict.${tgt_lang}.txt
-    #--srcdict  ${data_dir}/prep/spm.${src_lang}.nopretok.vocab \
-    #--tgtdict  ${data_dir}/prep/spm.${tgt_lang}.nopretok.vocab \
+    --srcdict ${nmt_models_dir}/jparacrawl/${src_lang}-${tgt_lang}/small_${src_lang}-${tgt_lang}/dict.${src_lang}.txt \ 
+    --tgtdict ${nmt_models_dir}/jparacrawl/${src_lang}-${tgt_lang}/small_${src_lang}-${tgt_lang}/dict.${tgt_lang}.txt \
     --destdir ${data_dir}/bin
 
