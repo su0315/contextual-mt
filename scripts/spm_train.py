@@ -38,14 +38,14 @@ def main():
         vocab = Counter()
         sp = spm.SentencePieceProcessor()
         sp.Load(f"{args.model_prefix}.model")
-        with open(args.data, "r") as raw:
+        with open(args.data, "r", encoding='utf-8') as raw:
             for line in raw:
                 pieces = sp.encode(line.strip(), out_type=str)
                 for p in pieces:
                     if p not in args.special_symbols:
                         vocab[p] += 1
 
-        with open(args.vocab_file, "w") as vocab_f:
+        with open(args.vocab_file, "w", encoding='utf-8') as vocab_f:
             for symbol in args.special_symbols:
                 print(f"{symbol} 0", file=vocab_f)
             for word, freq in vocab.most_common(

@@ -18,8 +18,8 @@ def main():
 
     for inp, out in zip(args.inputs, args.outputs):
         if inp is not None and out is not None:
-            inp_f = open(inp, "r")
-            out_f = open(out, "w")
+            inp_f = open(inp, "r", encoding='utf-8')
+            out_f = open(out, "w", encoding='utf-8')
         else:
             inp_f = sys.stdin
             out_f = sys.stdout
