@@ -1,8 +1,10 @@
+#!/usr/bin/env bash
+
 VOCAB_SIZE=32000
 
-REPO=C:/Users/hsmr0/IM/main/contextual-mt
-data_dir=C:/Users/hsmr0/IM/main/contextual-mt/data/BSD-master/for_preprocess
-nmt_models_dir=C:/Users/hsmr0/IM/main/NMT_models
+REPO=home/sumire/main/contextual-mt
+data_dir=home/sumire/main/contextual-mt/data/BSD-master/for_preprocess
+nmt_models_dir=home/sumire/main/NMT_models
 
 src_lang="en"
 tgt_lang="ja"
