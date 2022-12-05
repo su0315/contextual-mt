@@ -10,9 +10,9 @@ from fairseq.sequence_scorer import SequenceScorer
 
 import sentencepiece as sp
 
-import contextual_mt  # noqa: F401
-from contextual_mt.contextual_dataset import collate
-from contextual_mt.utils import encode, create_context, parse_documents
+#import home/sumire/main/contextual-mt/contextual_mt  # noqa: F401
+from contextual_dataset import collate
+from utils import encode, create_context, parse_documents
 
 
 def compute_cxmi(
@@ -194,7 +194,7 @@ def main():
     with open(args.reference_file, "r", encoding="utf-8") as tgt_f:
         refs = [line.strip() for line in tgt_f]
     with open(args.docids_file, "r", encoding="utf-8") as docids_f:
-        docids = [int(idx) for idx in docids_f]
+        docids = [idx for idx in docids_f]
 
     pretrained = hub_utils.from_pretrained(
         args.path, checkpoint_file="checkpoint_best.pt"
