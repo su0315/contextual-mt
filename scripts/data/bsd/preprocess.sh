@@ -12,14 +12,14 @@ tgt_lang="ja"
 for lang in $src_lang $tgt_lang; do
     python $REPO/scripts/spm_train.py \
         ${data_dir}/train.${lang} \
-        --model-prefix ${data_dir}/prep/spm.${lang}.nopretok.model \
+        --model-prefix ${data_dir}/prep/spm.${lang}.nopretok \
         --vocab-file ${nmt_models_dir}/jparacrawl/${src_lang}-${tgt_lang}/small_${src_lang}-${tgt_lang}/dict.${lang}.txt \
         --vocab-size $VOCAB_SIZE
 done
 for split in train dev test; do
     for lang in $src_lang $tgt_lang; do
         python $REPO/scripts/spm_encode.py \
-            --model ${data_dir}/prep/spm.$lang.nopretok.model \
+            --model ${data_dir}/prep/spm.$lang.nopretok \
             --inputs ${data_dir}/${split}.${lang} \
             --outputs ${data_dir}/prep/${split}.sp.${lang} # with open('file', 'w') as sys.stdout: print('test')
 
