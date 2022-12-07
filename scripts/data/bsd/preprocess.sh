@@ -30,9 +30,10 @@ done
 fairseq-preprocess \
     --source-lang $src_lang --target-lang $tgt_lang \
     --trainpref ${data_dir}/prep/train.sp \
-    --validpref ${data_dir}/pep/valid.sp \
+    --validpref ${data_dir}/prep/dev.sp \
     --testpref ${data_dir}/prep/test.sp \
     --srcdict ${nmt_models_dir}/jparacrawl/${src_lang}-${tgt_lang}/small_${src_lang}-${tgt_lang}/dict.${src_lang}.txt \
     --tgtdict ${nmt_models_dir}/jparacrawl/${src_lang}-${tgt_lang}/small_${src_lang}-${tgt_lang}/dict.${tgt_lang}.txt \
     --destdir ${data_dir}/bin
 
+echo "DONE"
